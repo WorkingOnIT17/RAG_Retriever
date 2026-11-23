@@ -1,0 +1,25 @@
+Title: Introduction to Artificial Intelligence and Retrieval-Augmented Generation (RAG)
+Author: Study Notes
+Date: November 2026
+
+1. Overview of Artificial Intelligence
+Artificial Intelligence (AI) refers to the simulation of human intelligence in machines that are programmed to think and learn. The field was officially founded as an academic discipline in 1956 at the Dartmouth Workshop. Modern AI is largely driven by Machine Learning (ML) and Deep Learning (DL), which use neural networks to identify patterns in massive datasets.
+
+2. Large Language Models (LLMs)
+Large Language Models are foundation models trained on vast amounts of text data to understand and generate human-like text. They rely on the Transformer architecture, introduced by researchers at Google in the 2017 paper "Attention Is All You Need". While LLMs excel at reasoning and text generation, they have two major limitations:
+- Knowledge Cutoff: They do not know about events or private data created after their training period.
+- Hallucinations: They can occasionally generate plausible-sounding but factually incorrect information.
+
+3. What is Retrieval-Augmented Generation (RAG)?
+Retrieval-Augmented Generation (RAG) is an architectural framework that improves LLM responses by referencing an authoritative knowledge base outside of its training data before generating a response. 
+
+The standard RAG pipeline consists of four main stages:
+Step 1: Loading - Using document loaders (like TextLoader or PyPDFLoader) to read raw files into memory as Document objects.
+Step 2: Splitting - Breaking long documents into smaller, semantically meaningful chunks (often 500 to 1,000 characters) with slight overlap so context is not lost at the boundaries.
+Step 3: Embedding and Storing - Converting text chunks into numerical vectors using an embedding model and saving them in a vector database (such as Chroma, FAISS, or Pinecone).
+Step 4: Retrieval and Generation - When a user asks a question, the system searches the vector database for the most relevant chunks and passes them to the LLM as context to formulate an accurate answer.
+
+4. Key Metrics to Remember
+- Standard chunk size for testing: 500 characters
+- Standard chunk overlap: 50 characters
+- Vector similarity metric: Cosine Similarity, Euclidean Distance, or Dot Product
